@@ -23,3 +23,5 @@ ENV/
 
 # Logs
 *.log
+"datasets/credits.csv" 
+"datasets/ratings.csv" 
