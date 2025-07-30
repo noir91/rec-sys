@@ -7,7 +7,7 @@ Include/
 Scripts/
 *.egg-info/
 *.dist-info/
-
+.ipynb_checkpoints/
 
 # Environments
 .env
