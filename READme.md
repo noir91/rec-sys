@@ -1,35 +1,47 @@
-## End-to-End Content based Recommend System
+# End-to-End Content-based Recommender System
 
-This repository holds a cosine similarity TF-IDF Recommender system.\
+This repository holds a cosine similarity TF-IDF Recommender system.
 
-- Model trained on ~46k movies \
-- Images fetched from TMDB Developers API\
-- Consists of dockerfile.yaml and docker-compose.yaml for the respective : \
-    - Frontend (FastAPI)\
-    - Backend  (Streamlit)\
-- Repo consists of three model files under ./api/data/\
-    - movie_dictdf.pkl: DataFrame holding a cleaned version of movies associated with their id and name.\
-    - similarities.pkl: TF-IDF cosine similarity \vectors used at inference for recommending 'top_n' movies.\
-    - movie_dict.pkl ~ ignore\
-    
-The code present in this repo is modular and hence easier to navigate.\
+Model trained on ~46k movies.  
+Images are fetched from the TMDB Developers API.
 
-./api/ stores fastapi and functions requried for inference.\
+Includes Docker support using `dockerfile` and `docker-compose.yaml` for:
 
-./streamlit_app/ stores streamlit app.py which runs the frontend of the application.\
+- **Backend** (FastAPI)
+- **Frontend** (Streamlit)
 
-Routes used (FastAPI) :\
+---
 
-GET\
-/fetch_poster : gets the posters from TMDB Developer's API for the respective movie_id's\
+###  Model Artifacts (under `./api/data/`):
 
-/getdata : gets the data from .pkl files at the initial stage of FastAPI. \
-To avoid redundant getdata requests using Lifespan, caching in the data early reducing server overhead.\
+- `movie_dictdf.pkl`: Cleaned DataFrame mapping movie names to their IDs
+- `similarities.pkl`: Cosine similarity vectors used during inference
+- `movie_dict.pkl`: (temporary, can be ignored)
 
-POST\
-/recommend : Sends a request body of movie_name and top_n.\
-    where, \
-        - movie_name stands for the Movie's Name associated with the id.\
-        - top_n for the top recommendations. 
-        default set to 6.\
+---
 
+###  Code Structure
+
+- `./api/` — FastAPI backend, core logic, routing, data handling
+- `./streamlit_app/` — Streamlit frontend (UI)
+
+---
+
+###  API Routes (FastAPI)
+
+#### `GET` routes:
+
+- `/fetch_poster`: Fetches posters from TMDB API using `movie_id`
+- `/getdata`: Preloads `.pkl` files on startup using lifespan caching to avoid redundant loading
+
+#### `POST` route:
+
+- `/recommend`: 
+    - Accepts: `movie_name` and `top_n`
+    - Returns: list of top-N similar movie recommendations
+
+---
+
+###  Note
+
+This repo uses a modular structure for readability and maintainability.
