@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.tar
+Lib/
+Include/
+Scripts/
+*.egg-info/
+*.dist-info/
+
+
+# Environments
+.env
+.venv/
+venv/
+ENV/
+
+# VSCode settings (optional)
+.vscode/
+
+# OS
+.DS_Store
+
+# Logs
+*.log

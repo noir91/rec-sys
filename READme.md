@@ -7,7 +7,6 @@ This repository holds a cosine similarity TF-IDF Recommender system.
 - Consists of dockerfile.yaml and docker-compose.yaml for the respective : 
     - Frontend (FastAPI)
     - Backend  (Streamlit)
-- Holds Docker images stored as .tar for both ends.
 - Repo consists of three model files under ./api/data/
     - movie_dictdf.pkl: DataFrame holding a cleaned version of movies associated with their id and name.
     - similarities.pkl: TF-IDF cosine similarity vectors used at inference for recommending 'top_n' movies.
