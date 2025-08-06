@@ -1,7 +1,6 @@
 import pickle
-import requests as r
 import torch
-from api.models.schemas import MovieRequest, RecommendationsResponse
+from api.models.schemas import MovieRequest
 from api.logic.load_data import data
 from api.utils.posters import fetch_poster
 
