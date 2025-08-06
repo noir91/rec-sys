@@ -15,8 +15,7 @@ def test_route():
                             json = payload,
                             headers = headers)
     assert response.status_code == 200
-    return response.json()
-        
+            
 class Test_fastapi(unittest.TestCase):
     def test_recommend_route_assertion(self):
         result = test_route()
