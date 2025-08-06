@@ -1,0 +1,27 @@
+name: "Continious Integration (CI) Build"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: python3.10-slim
+    steps:
+        - name: Build project
+          uses: actions/checkout@v4
+
+        - name: Setup python
+          uses: actions/setup-python@v5
+          with:
+            python-version: '3.10'
+        - name: Install Dependencies
+          run: pip install -r requirements.txt
+
+        - name: Run unit tests
+          run: |
+            echo "Running unit tests for logic, utils, routes(fastapi) and streamlit_app"
+            pytest -vv tests
+        - run: echo "Unit testing completed."
