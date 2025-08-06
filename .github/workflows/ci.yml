@@ -1,10 +1,13 @@
-name: "Continious Integration (CI) Build"
+name: "CI Build"
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
