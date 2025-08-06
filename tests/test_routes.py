@@ -14,13 +14,15 @@ def test_route():
     response = client.post('/recommend',
                             json = payload,
                             headers = headers)
-    assert response.status_code == 200
-            
+    return response
+
 class Test_fastapi(unittest.TestCase):
     def test_recommend_route_assertion(self):
-        result = test_route()
-
+        response = test_route()
+        result = response.json()
+        
         # Assertions
+        self.assertEqual(response.status_code, 200)
         self.assertIsInstance(result, dict)
         self.assertIn("titles", result)
         self.assertIn("posters", result)
