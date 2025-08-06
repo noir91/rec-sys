@@ -5,8 +5,7 @@ from api.app import app
 
 client = TestClient(app)
 
-@app.post('/recommend')
-def test_route():    
+def call_route():    
     payload = {'movie_name': 'Iron Man',
                 'top_n': 5}
     headers = {'Content-Type': 'application/json'}
@@ -18,7 +17,7 @@ def test_route():
 
 class Test_fastapi(unittest.TestCase):
     def test_recommend_route_assertion(self):
-        response = test_route()
+        response = call_route()
         result = response.json()
         
         # Assertions
