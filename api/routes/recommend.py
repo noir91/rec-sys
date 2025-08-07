@@ -1,8 +1,6 @@
 from api.models.schemas import RecommendationsResponse, MovieRequest
 from api.logic.recommender import recommend
 from fastapi import APIRouter, Request
-import requests as r
-from api.logic.load_data import data
 apirouter = APIRouter()
 
 @apirouter.post('/recommend', response_model= RecommendationsResponse)

@@ -1,4 +1,3 @@
-import pickle
 import torch
 from api.models.schemas import MovieRequest
 from api.logic.load_data import data

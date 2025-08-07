@@ -1,9 +1,6 @@
 
 from fastapi import FastAPI
-import requests as r
 from api.routes import recommend
-from api.logic.load_data import data
-from contextlib import asynccontextmanager
 
 # Recommend and getdata routes
 app = FastAPI(title = 'Content Based Recommender System')

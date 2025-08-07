@@ -3,7 +3,6 @@ import pandas as pd
 import torch as t
 from unittest.mock import Mock, patch
 import unittest
-from api.models.schemas import MovieRequest
 from api.logic.recommender import recommend
 
 class Test_logicfunc(unittest.TestCase):
