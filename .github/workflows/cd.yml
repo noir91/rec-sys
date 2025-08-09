@@ -41,11 +41,16 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION}}
     
       
-      - name: Login to Amazon ECR
+      - name: Login to Amazon ECR and create repo if missing
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ env.ECR_AUTH_URL }}
-          aws ecr-public create-repository --repository-name $ECR_REPO --region us-east-1
-      
+          if ! aws ecr-public describe-repositories --repository-names $ECR_REPO --region us-east-1 > /dev/null 2>&1; then
+            echo "Repository $ECR_REPO does not exist. Creating..."
+            aws ecr-public create-repository --repository-name $ECR_REPO --region us-east-1
+          else
+            echo "Repository $ECR_REPO already exists. Skipping creation."
+          fi
+
         # Backend Image
 
       - name: Build, tag, and push backend image
