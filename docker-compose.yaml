@@ -1,25 +1,21 @@
+version: '3.9'
 
 services:
   backend:
-    build:
-      context: .
-      dockerfile: ./api/Dockerfile
-    container_name: be-recsys
+    image: ${ECR_URL}/${ECR_REPO}:backend
     ports:
       - "8000:8000"
     networks:
       - recsys-net
 
   frontend:
-    build:
-      context: .
-      dockerfile: ./streamlit_app/Dockerfile
-    container_name: fe-recsys
+    image: ${ECR_URL}/${ECR_REPO}:frontend
     ports:
       - "8501:8501"
     depends_on:
       - backend
     networks:
       - recsys-net
+
 networks:
   recsys-net:
