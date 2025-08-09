@@ -8,7 +8,7 @@ on:
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-  ECR_URL: ${{ secrets.ECR_URL }}
+  ECR_URL: ${{ secrets.ECR_AUTH_URI }}
   ECR_REPO: ${{ secrets.ECR_REPO }}
 
 jobs:
