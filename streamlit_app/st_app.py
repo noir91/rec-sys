@@ -39,7 +39,4 @@ def main():
                 st.subheader(names[i])
                 st.image(posters[i])
 
-# Guard
-if __name__ == 'main':
-    main()
     
