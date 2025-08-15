@@ -7,7 +7,8 @@ services:
       - "8000:8000"
     networks:
       - recsys-net
-
+    restart: always
+    
   frontend:
     image: ${ECR_URL}/${ECR_REPO}:frontend
     ports:
