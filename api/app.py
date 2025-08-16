@@ -5,6 +5,9 @@ import requests as r
 from api.routes import recommend
 from api.logic.load_data import data
 
+
+def add(a,b):
+    return a + b
 # caching the data on startup for 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
